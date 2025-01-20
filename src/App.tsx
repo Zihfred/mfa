@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Instance from "@/pages/instance";
 import Register from "@/pages/register";
+import {useState} from "react";
 
 function Router() {
   return (
@@ -17,7 +18,11 @@ function Router() {
     </Switch>
   );
 }
-
+interface Props {
+    state?: string,
+    setState?: (value:string) => void,
+    text?: string
+}
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

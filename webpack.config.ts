@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { container } from "webpack";
 import { Configuration } from "webpack";
 import * as dependencies from "./package.json";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const { ModuleFederationPlugin } = container;
 
@@ -21,7 +22,16 @@ const config: Configuration = {
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader", "postcss-loader"],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                        },
+                    },
+                    'postcss-loader'
+                ],
             },
         ],
     },
@@ -30,11 +40,13 @@ const config: Configuration = {
             template: "./public/index.html",
             favicon: "./public/favicon.ico",
         }),
+        new MiniCssExtractPlugin(),
         new ModuleFederationPlugin({
             name: "HeaderApp",
             filename: "remoteEntry.js",
             exposes: {
                 "./Header": "./src/App",
+                "./styles": "./src/index.css"
             },
             shared: {
                 ...dependencies.dependencies,
