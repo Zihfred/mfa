@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
-export default function Register() {
+export default function Register({onSuccess}: any) {
   const [, navigate] = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,7 +27,7 @@ export default function Register() {
       }
 
       const { id } = await response.json();
-      navigate(`/${id}`);
+      onSuccess(id)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to upload file");
     } finally {
@@ -36,7 +36,6 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-background p-4 md:p-8 flex items-center justify-center">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Upload Statement</CardTitle>
@@ -73,6 +72,5 @@ export default function Register() {
           </form>
         </CardContent>
       </Card>
-    </div>
   );
 }

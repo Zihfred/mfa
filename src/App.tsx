@@ -4,8 +4,8 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
-import Instance from "@/pages/instance";
-import Register from "@/pages/register";
+import Instance from "@/components/instance";
+import Register from "@/components/register";
 import {useState} from "react";
 
 function Router() {
@@ -13,7 +13,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/register" component={Register} />
-      <Route path="/:id" component={Instance} />
+      {/*<Route path="/:id" component={Instance} />*/}
       <Route component={NotFound} />
     </Switch>
   );

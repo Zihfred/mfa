@@ -4,7 +4,6 @@ import { container } from "webpack";
 import { Configuration } from "webpack";
 import * as dependencies from "./package.json";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-
 const { ModuleFederationPlugin } = container;
 
 const config: Configuration = {
@@ -46,7 +45,10 @@ const config: Configuration = {
             filename: "remoteEntry.js",
             exposes: {
                 "./Header": "./src/App",
-                "./styles": "./src/index.css"
+                "./styles": "./src/index.css",
+                "./TestComponent": "./src/components/TestComponent",
+                "./Register": "./src/components/register",
+                "./Instance": "./src/components/instance",
             },
             shared: {
                 ...dependencies.dependencies,

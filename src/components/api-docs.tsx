@@ -18,7 +18,7 @@ export function ApiDocs() {
         <p className="text-lg text-muted-foreground mb-4">
           A standalone component for parsing and displaying Bank of America statement data from CSV files.
         </p>
-        <Link href="/register">
+        <Link href="/widget/src/components/register">
           <Button>Upload New Statement</Button>
         </Link>
       </div>
@@ -30,7 +30,7 @@ export function ApiDocs() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <h3 className="text-lg font-semibold mb-2">1. Upload Interface (<Link href="/register" className="text-primary hover:underline">/register</Link>)</h3>
+            <h3 className="text-lg font-semibold mb-2">1. Upload Interface (<Link href="/widget/src/components/register" className="text-primary hover:underline">/register</Link>)</h3>
             <p>A dedicated page for uploading new Bank of America CSV statement files. Each upload creates a new instance of the viewer component.</p>
           </div>
           <div>
