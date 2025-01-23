@@ -38,7 +38,7 @@ export default function Instance() {
   const { id } = useParams();
 
   const { data, isLoading, error } = useQuery<BankData>({
-    queryKey: [`/${id}/api/data`],
+    queryKey: [`https://bank-of-america-statement-viewer-andrewtabit.replit.app/${id}/api/data`],
     enabled: !!id,
   });
 

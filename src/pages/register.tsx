@@ -17,7 +17,7 @@ export default function Register() {
     const formData = new FormData(e.currentTarget);
 
     try {
-      const response = await fetch("/api/uploads", {
+      const response = await fetch("https://bank-of-america-statement-viewer-andrewtabit.replit.app/api/uploads", {
         method: "POST",
         body: formData,
       });
