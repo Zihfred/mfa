@@ -44,9 +44,6 @@ const config: Configuration = {
             name: "HeaderApp",
             filename: "remoteEntry.js",
             exposes: {
-                "./Header": "./src/App",
-                "./styles": "./src/index.css",
-                "./TestComponent": "./src/components/TestComponent",
                 "./Register": "./src/components/register",
                 "./Instance": "./src/components/instance",
             },
